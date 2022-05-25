@@ -60,11 +60,11 @@ a {
     width: 10px;
     height: 6px;
     margin-left: 18px;
-    background-image: url(/assets/icon-arrow-down.svg);
+    background-image: url(../assets/icon-arrow-down.svg);
     background-size: 10px 6px;
 }
 .menu.toggle.toggled > .menu-header.dropdown::after {
-    background-image: url(/assets/icon-arrow-up.svg);
+    background-image: url(../assets/icon-arrow-up.svg);
 }
 
 
@@ -116,7 +116,7 @@ TODO: find a saner way to position the entire navbar or at least ask for one*/
 .intro.hero-img {
     --img-width: 100%;
     --img-height: auto;
-    content: url(/assets/image-hero-mobile.png);
+    content: url(../assets/image-hero-mobile.png);
     width:100%;
     height:auto;
 }
