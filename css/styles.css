@@ -1,0 +1,87 @@
+
+/* 
+
+███    ███  ██████  ██████  ██ ██      ███████ 
+████  ████ ██    ██ ██   ██ ██ ██      ██      
+██ ████ ██ ██    ██ ██████  ██ ██      █████   
+██  ██  ██ ██    ██ ██   ██ ██ ██      ██      
+██      ██  ██████  ██████  ██ ███████ ███████ 
+                                               
+
+*/
+
+.navbar ul {
+    list-style-type: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    margin: 0;
+    padding: 0;
+}
+
+/* decorative for menu-headers */
+
+.menu-header.icon-menu {
+    display:block;
+    position:absolute;
+    top: 32px;
+    right: 32px;
+    transform: translate(50%, -50%);
+    width:32px;
+    height:18px;
+    background-image: url(../assets/icon-menu.svg);
+}
+.menu.toggle.toggled > .menu-header.icon-menu {
+    width: 24px;
+    height: 24px;
+    background-image: url(../assets/icon-close-menu.svg);
+}
+
+.menu-header.dropdown::after {
+    display: inline-block;
+    content: ' ';
+    width: 10px;
+    height: 6px;
+    background-image: url(/assets/icon-arrow-down.svg);
+    background-size: 10px 6px;
+}
+.menu.toggle.toggled > .menu-header.dropdown::after {
+    background-image: url(/assets/icon-arrow-up.svg);
+}
+
+
+/* menu toggle dropdown functionality */
+.item {display:none}
+/* selector targets immediate descendants with .submenu class when menu-toggle is focused */
+.menu.toggle.toggled > .item {
+    display: block;
+    margin-left: 10px;
+}
+.menu.dropdown.toggled > .item {
+    display:block;
+    margin:10px;
+}
+
+.menu.main-menu.toggled {
+    position: absolute;
+    background-color: hsl(0,0%,98%);
+    top: 0%;
+    right: 0%;
+    /* when focused, expand menu to 100% height and  */
+    width:240px;
+    height:100vh;
+}
+
+/* 
+
+██████  ███████ ███████ ██   ██ ████████  ██████  ██████  
+██   ██ ██      ██      ██  ██     ██    ██    ██ ██   ██ 
+██   ██ █████   ███████ █████      ██    ██    ██ ██████  
+██   ██ ██           ██ ██  ██     ██    ██    ██ ██      
+██████  ███████ ███████ ██   ██    ██     ██████  ██  
+
+*/

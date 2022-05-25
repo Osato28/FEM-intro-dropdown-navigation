@@ -1,31 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Intro section with dropdown navigation</title>
-  <link rel="stylesheet" href="./css/normalize.min.css">
-  <link rel="stylesheet" href="./css/styles.css">
-  <script defer src="./js/scripts.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+
+    <title>Frontend Mentor | Intro section with dropdown navigation</title>
+    <link rel="stylesheet" href="./css/normalize.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script defer src="./js/scripts.js"></script>
 </head>
+
 <body>
+    <nav class="navbar" role="navigation">
+        <ul class="menu main-menu toggle" data-class-toggled="toggled">
+            <div class="menu-header icon-menu"></div>
+            <ul class="item">
+                <ul class="menu toggle hover" data-class-toggled="toggled">
+                    <span class="menu-header dropdown">Features</span>
+                    <li class="item">Todo List</li>
+                    <li class="item">Calendar</li>
+                    <li class="item">Reminders</li>
+                    <li class="item">Planning</li>
+                </ul>
+                <ul class="menu toggle hover" data-class-toggled="toggled">
+                    <span class="menu-header dropdown">Company</span>
+                    <li class="item"><a href="#">History</a></li>
+                    <li class="item"><a href="#">Our Team</a></li>
+                    <li class="item"><a href="#">Blog</a></li>
+                </ul>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <ul class="item">
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+        </ul>
+    </nav>
 
-  Features
-  Company
-  Careers
-  About
+    <section id="intro">
+        <h1>Make remote work</h1>
 
-  Login
-  Register
+        <p>Get your team in sync, no matter your location. Streamline processes,
+            create team rituals, and watch productivity soar.</p>
 
-  Make remote work
-
-  Get your team in sync, no matter your location. Streamline processes, 
-  create team rituals, and watch productivity soar.
-
-  Learn more
+        <a href="#">
+            <div>Learn more</div>
+        </a>
+    </section>
 </body>
+
 </html>
