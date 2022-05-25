@@ -10,10 +10,13 @@
 
 */
 
-/* Font import */
+/* Font import, variables */
 
 html {
     font-family: 'Epilogue', sans-serif;
+    --clr-almost-white: hsl(0,0%,98%);
+    --clr-medium-gray: hsl(0,0%,41%);
+    --clr-almost-black: hsl(0,0,8%);
 }
 
 /* Resetting ul, li */
@@ -28,7 +31,12 @@ html {
     padding: 0;
 }
 
-/* decorative for menu-headers */
+a {
+    color:unset;
+    text-decoration: none;
+}
+
+/* decorative for menu items */
 
 .menu-header.icon-menu {
     display:block;
@@ -51,6 +59,7 @@ html {
     content: ' ';
     width: 10px;
     height: 6px;
+    margin-left: 18px;
     background-image: url(/assets/icon-arrow-down.svg);
     background-size: 10px 6px;
 }
@@ -60,15 +69,12 @@ html {
 
 
 /* menu toggle dropdown functionality */
-.item {display:none}
+.main-menu :where(ul, li) { 
+    display:none 
+} 
 /* selector targets immediate descendants with .submenu class when menu-toggle is focused */
-.menu.toggle.toggled > .item {
+.menu.toggle.toggled > :where(ul, li) {
     display: block;
-    margin-left: 10px;
-}
-.menu.dropdown.toggled > .item {
-    display:block;
-    margin:10px;
 }
 
 .menu.main-menu.toggled {
@@ -78,10 +84,28 @@ html {
     right: 0%;
     /* when focused, expand menu to 100% height and  */
     width:240px;
-    height:100vh;
+    height:100%;
+}
+
+/* Styling of elements in the main menu */
+.menu.main-menu.toggled > :where(ul,li) {
+    margin-top: 32px;
+    margin-left: 25px;
+    margin-right: 20px;
+    margin-bottom: auto;
+}
+/* First non-icon element in the menu gets a special place in this hell 
+Good grief, this is disgusting
+TODO: find a saner way to position the entire navbar or at least ask for one*/
+.menu.main-menu.toggled > :nth-child(2) {
+    margin-top: 82px;
 }
 
 /* Mobile styling */
+
+.bg-almost-white {
+    background-color: var(--clr-almost-white);
+}
 
 .navbar .logo {
     width: 84px;
@@ -95,6 +119,67 @@ html {
     content: url(/assets/image-hero-mobile.png);
     width:100%;
     height:auto;
+}
+
+.intro.header {
+    text-align: center;
+    width: 90%;
+    margin: 50px auto 28px auto;
+}
+
+.intro.text {
+    text-align: center;
+    width: 90%;
+    margin: auto auto 28px auto;
+}
+
+.intro.btn {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    width: 138px;
+    height: 48px;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 8%);
+    color: var(--clr-almost-white);
+    margin: auto auto 48px auto; 
+}
+
+.client-logos {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+    align-content: center;
+
+    /* display: inline-grid;
+    grid-template-columns: 80px 52px 63px 58px;
+    grid-template-rows: 80px;
+    column-gap: auto;
+    width: 90%;
+    margin: auto; */
+
+}
+.client-logos img {
+    align-self: center;
+    justify-self: center;
+}
+.client-logos img:nth-child(1) {
+    /* width: 80px; */
+    width: 21vw;
+}
+.client-logos img:nth-child(2) {
+    /* width: 52px; */
+    width: 14vw;
+}
+.client-logos img:nth-child(3) {
+    /* width: 63px; */
+    width: 17vw;
+}
+.client-logos img:nth-child(4) {
+    /* width: 58px; */
+    width: 16vw;
 }
 
 /* 

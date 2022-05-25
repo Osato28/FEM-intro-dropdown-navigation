@@ -14,40 +14,38 @@
 
     <link rel="stylesheet" href="./css/normalize.min.css">
     <link rel="stylesheet" href="./css/styles.css">
-    
+
     <script defer src="./js/scripts.js"></script>
 </head>
 
-<body>
+<body class="bg-almost-white">
     <nav class="navbar" role="navigation">
         <img src="assets/logo.svg" alt="Go back to main page" class="logo">
         <ul class="menu main-menu toggle" data-class-toggled="toggled">
             <div class="menu-header icon-menu"></div>
-            <ul class="item">
-                <ul class="menu toggle hover" data-class-toggled="toggled">
-                    <span class="menu-header dropdown">Features</span>
-                    <li class="item">Todo List</li>
-                    <li class="item">Calendar</li>
-                    <li class="item">Reminders</li>
-                    <li class="item">Planning</li>
-                </ul>
-                <ul class="menu toggle hover" data-class-toggled="toggled">
-                    <span class="menu-header dropdown">Company</span>
-                    <li class="item"><a href="#">History</a></li>
-                    <li class="item"><a href="#">Our Team</a></li>
-                    <li class="item"><a href="#">Blog</a></li>
-                </ul>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">About</a></li>
+            <ul class="menu toggle hover" data-class-toggled="toggled">
+                <span class="menu-header dropdown">Features</span>
+                <li class="item">Todo List</li>
+                <li class="item">Calendar</li>
+                <li class="item">Reminders</li>
+                <li class="item">Planning</li>
             </ul>
-            <ul class="item">
+            <ul class="menu toggle hover" data-class-toggled="toggled">
+                <span class="menu-header dropdown">Company</span>
+                <li class="item"><a href="#">History</a></li>
+                <li class="item"><a href="#">Our Team</a></li>
+                <li class="item"><a href="#">Blog</a></li>
+            </ul>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">About</a></li>
+            <ul class="buttons">
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Register</a></li>
             </ul>
         </ul>
     </nav>
 
-    <section class="intro bg">
+    <section class="intro">
         <div class="intro hero-img"></div>
         <h1 class="intro header">Make remote work</h1>
 
@@ -55,8 +53,15 @@
             create team rituals, and watch productivity soar.</p>
 
         <a href="#">
-            <div class="intro btn">Learn more</div>
+            <div class="intro btn"><p>Learn more</p></div>
         </a>
+    </section>
+
+    <section class="client-logos">
+        <img src="assets/client-databiz.svg" alt="">
+        <img src="assets/client-audiophile.svg" alt="">
+        <img src="assets/client-meet.svg" alt="">
+        <img src="assets/client-maker.svg" alt="">
     </section>
 
 </body>
