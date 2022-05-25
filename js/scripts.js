@@ -1,4 +1,3 @@
-// onClick processor
 function toggle(element) {
     const toggledClass = element.dataset.classToggled ?? null;
 

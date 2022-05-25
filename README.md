@@ -7,6 +7,6 @@
 - [ ] Desktop dropdown menu functionality
 - [ ] Desktop styling
 - [ ] Utopia fluid scaling
-- [ ] Cleanup, minify
+- [ ] Cleanup + comment JS, purge+minify CSS, remove unused fonts
 - [ ] Host on Pages
 - [ ] Write finalized README.md

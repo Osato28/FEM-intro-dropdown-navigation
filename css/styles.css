@@ -10,15 +10,20 @@
 
 */
 
-.navbar ul {
-    list-style-type: none;
+/* Font import */
+
+html {
+    font-family: 'Epilogue', sans-serif;
 }
 
-ul {
+/* Resetting ul, li */
+.navbar ul {
+    list-style-type: none;
     margin: 0;
     padding: 0;
 }
-li {
+
+.navbar li {
     margin: 0;
     padding: 0;
 }
@@ -74,6 +79,22 @@ li {
     /* when focused, expand menu to 100% height and  */
     width:240px;
     height:100vh;
+}
+
+/* Mobile styling */
+
+.navbar .logo {
+    width: 84px;
+    height: 28px;
+    margin: 24px auto 24px 17px;
+}
+
+.intro.hero-img {
+    --img-width: 100%;
+    --img-height: auto;
+    content: url(/assets/image-hero-mobile.png);
+    width:100%;
+    height:auto;
 }
 
 /* 
