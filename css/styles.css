@@ -16,7 +16,7 @@ html {
     font-family: 'Epilogue', sans-serif;
     --clr-almost-white: hsl(0,0%,98%);
     --clr-medium-gray: hsl(0,0%,41%);
-    --clr-almost-black: hsl(0,0,8%);
+    --clr-almost-black: hsl(0,0%,8%);
 }
 
 /* Resetting ul, li */
@@ -60,6 +60,7 @@ a {
     width: 10px;
     height: 6px;
     margin-left: 18px;
+    margin-bottom: 2px;
     background-image: url(../assets/icon-arrow-down.svg);
     background-size: 10px 6px;
 }
@@ -77,6 +78,7 @@ a {
     display: block;
 }
 
+/* Specifically for the main manu */
 .menu.main-menu.toggled {
     position: absolute;
     background-color: hsl(0,0%,98%);
@@ -85,25 +87,95 @@ a {
     /* when focused, expand menu to 100% height and  */
     width:240px;
     height:100%;
+    z-index: 1002;
+}
+
+/* Transparent black backdrop */
+
+.main-menu + .backdrop {
+    display: none;
+}
+
+.main-menu.toggled + .backdrop {
+    display: block;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 30%);
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
 }
 
 /* Styling of elements in the main menu */
-.menu.main-menu.toggled > :where(ul,li) {
+.menu.main-menu > :where(ul,li) {
     margin-top: 32px;
     margin-left: 25px;
     margin-right: 20px;
     margin-bottom: auto;
 }
+.menu.main-menu > .item-button + .item-button {
+    margin-top: 5px;
+}
+
 /* First non-icon element in the menu gets a special place in this hell 
 Good grief, this is disgusting
-TODO: find a saner way to position the entire navbar or at least ask for one*/
-.menu.main-menu.toggled > :nth-child(2) {
+TODO: find a saner way to position the entire navbar or at least LOOK for a saner way */
+.menu.main-menu > :nth-child(2) {
     margin-top: 82px;
+}
+
+/* Styling of items in the submenus */
+
+.submenu .item {
+    margin-top: 32px;
+    margin-left: 25px;
+    margin-right: 20px;
+    margin-bottom: auto;
+}
+.submenu .item + .item {
+    margin-top: 24px;
+}
+
+.item.icon::before {
+    display: inline-block;
+    content: ' ';
+    margin-right: 14px;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+}
+
+.item.icon.list::before {
+    background-image: url(../assets/icon-todo.svg);
+    background-size: 20px 20px;
+    margin-bottom: -3px;
+}
+
+.item.icon.calendar::before {
+    background-image: url(../assets/icon-calendar.svg);
+    background-size: 20px 20px;
+    margin-bottom: -3px;
+}
+
+.item.icon.bell::before {
+    margin-left: 2px;
+    margin-right: 16px;
+    width: 16px;
+    background-image: url(../assets/icon-reminders.svg);
+    background-size: 16px 20px;
+    margin-bottom: -4px;
+}
+
+.item.icon.clock::before {
+    background-image: url(../assets/icon-planning.svg);
+    background-size: 20px 20px;
+    margin-bottom: -4px;
 }
 
 /* Mobile styling */
 
-.bg-almost-white {
+body {
     background-color: var(--clr-almost-white);
 }
 
@@ -133,17 +205,48 @@ TODO: find a saner way to position the entire navbar or at least ask for one*/
     margin: auto auto 28px auto;
 }
 
-.intro.btn {
+.btn {
     display: flex;
+    box-sizing: border-box;
     align-content: center;
     justify-content: center;
     text-align: center;
+    border-radius: 15px;
+}
+.btn.bg-black {
+    background-color: var(--clr-almost-black);
+    color: var(--clr-almost-white);
+    border-color: var(--clr-almost-black);
+    border-width: 2px;
+    border-style: solid;
+}
+.btn.bg-black:hover {
+    background-color: var(--clr-almost-white);
+    color: var(--clr-almost-black);
+}
+.btn.bg-white {
+    background-color: var(--clr-almost-white);
+    color: var(--clr-medium-gray);
+}
+.btn.bg-white:hover {
+    color: var(--clr-almost-black);
+}
+.btn.border-black {
+    border-color: var(--clr-almost-black);
+    border-width: 2px;
+    border-style: solid;
+}
+
+.intro .btn {
     width: 138px;
     height: 48px;
-    border-radius: 10px;
-    background-color: hsl(0, 0%, 8%);
-    color: var(--clr-almost-white);
     margin: auto auto 48px auto; 
+}
+
+.menu .btn {
+    height: 50px;
+    max-width: 100%;
+    margin: auto;
 }
 
 .client-logos {

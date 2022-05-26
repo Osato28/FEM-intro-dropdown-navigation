@@ -18,19 +18,19 @@
     <script defer src="./js/scripts.js"></script>
 </head>
 
-<body class="bg-almost-white">
+<body>
     <nav class="navbar" role="navigation">
         <img src="assets/logo.svg" alt="Go back to main page" class="logo">
         <ul class="menu main-menu toggle" data-class-toggled="toggled">
             <div class="menu-header icon-menu"></div>
-            <ul class="menu toggle hover" data-class-toggled="toggled">
+            <ul class="menu submenu toggle hover" data-class-toggled="toggled">
                 <span class="menu-header dropdown">Features</span>
-                <li class="item">Todo List</li>
-                <li class="item">Calendar</li>
-                <li class="item">Reminders</li>
-                <li class="item">Planning</li>
+                <li class="item icon list">Todo List</li>
+                <li class="item icon calendar">Calendar</li>
+                <li class="item icon bell">Reminders</li>
+                <li class="item icon clock">Planning</li>
             </ul>
-            <ul class="menu toggle hover" data-class-toggled="toggled">
+            <ul class="menu submenu toggle hover" data-class-toggled="toggled">
                 <span class="menu-header dropdown">Company</span>
                 <li class="item"><a href="#">History</a></li>
                 <li class="item"><a href="#">Our Team</a></li>
@@ -38,11 +38,10 @@
             </ul>
             <li><a href="#">Careers</a></li>
             <li><a href="#">About</a></li>
-            <ul class="buttons">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
-            </ul>
+            <li class="item-button"><a href="#"><div class="btn bg-white"><p>Login</p></div></a></li>
+            <li class="item-button"><a href="#"><div class="btn bg-white border-black"><p>Register</p></div></a></li>
         </ul>
+        <div class="backdrop"></div>
     </nav>
 
     <section class="intro">
@@ -53,7 +52,7 @@
             create team rituals, and watch productivity soar.</p>
 
         <a href="#">
-            <div class="intro btn"><p>Learn more</p></div>
+            <div class="intro btn bg-black"><p>Learn more</p></div>
         </a>
     </section>
 
