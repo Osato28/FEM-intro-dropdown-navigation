@@ -377,7 +377,10 @@ body {
     .navbar .logo {
         /* display: inline-block; */
         position: static;
+        margin-top: 32px;
+        margin-bottom: 30px;
         margin-right: 65px;
+        margin-left: 40px;
         flex-grow: 0;
     }
 
