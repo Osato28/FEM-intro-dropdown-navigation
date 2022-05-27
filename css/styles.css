@@ -80,7 +80,7 @@ a {
 }
 
 /* selector targets immediate descendants with .submenu class when menu-toggle is focused */
-.menu.toggle.toggled> :where(ul, li) {
+.menu.toggle.toggled > :where(ul, li) {
     display: block;
 }
 
@@ -98,11 +98,11 @@ a {
 
 /* Transparent black backdrop */
 
-.main-menu+.backdrop {
+.main-menu + .backdrop {
     display: none;
 }
 
-.main-menu.toggled+.backdrop {
+.main-menu.toggled + .backdrop {
     display: block;
     position: absolute;
     background-color: rgba(0, 0, 0, 30%);
@@ -114,21 +114,21 @@ a {
 }
 
 /* Styling of elements in the main menu */
-.menu.main-menu> :where(ul, li) {
+.menu.main-menu > :where(ul, li) {
     margin-top: 32px;
     margin-left: 25px;
     margin-right: 20px;
     margin-bottom: auto;
 }
 
-.menu.main-menu>.item-button+.item-button {
+.menu.main-menu > .item-button+.item-button {
     margin-top: 5px;
 }
 
 /* First non-icon element in the menu gets a special place in this hell 
 Good grief, this is disgusting
 TODO: find a saner way to position the entire navbar or at least LOOK for a saner way */
-.menu.main-menu> :nth-child(2) {
+.menu.main-menu > :where(:nth-child(2)) {
     margin-top: 82px;
 }
 
@@ -275,7 +275,7 @@ body {
     margin: auto auto 48px auto;
 }
 
-.menu .btn {
+.navbar .btn {
     height: 50px;
     max-width: 100%;
     margin: auto;
@@ -335,39 +335,22 @@ body {
 
 @media (min-width: 576px) {
 
-    .menu-header.icon-menu {}
+    .menu-header.icon-menu {
+        display: none;
+    }
 
-    .menu.toggle.toggled>.menu-header.icon-menu {}
+    /* TODO: Change logic from toggle to hover */
 
     .menu-header.dropdown::after {}
 
-    .menu.toggle.toggled>.menu-header.dropdown::after {}
+    .menu.toggle.toggled > .menu-header.dropdown::after {}
 
 
-    /* menu toggle dropdown functionality */
-    .main-menu :where(ul, li) {}
+    /* TODO: menu HOVER dropdown functionality */
 
-    /* selector targets immediate descendants with .submenu class when menu-toggle is focused */
-    .menu.toggle.toggled> :where(ul, li) {}
-
-    /* Specifically for the main manu */
-    .menu.main-menu.toggled {}
-
-    /* Transparent black backdrop */
-
-    .main-menu+.backdrop {}
-
-    .main-menu.toggled+.backdrop {}
-
-    /* Styling of elements in the main menu */
-    .menu.main-menu> :where(ul, li) {}
-
-    .menu.main-menu>.item-button+.item-button {}
-
-    /* First non-icon element in the menu gets a special place in this hell 
-Good grief, this is disgusting
-TODO: find a saner way to position the entire navbar or at least LOOK for a saner way */
-    .menu.main-menu> :nth-child(2) {}
+    .main-menu.toggled + .backdrop {
+        display: none;
+    }
 
     /* Styling of items in the submenus */
 
@@ -387,7 +370,54 @@ TODO: find a saner way to position the entire navbar or at least LOOK for a sane
 
     /* Mobile styling */
 
-    .navbar .logo {}
+    .navbar {
+        display: flex;
+    }
+
+    .navbar .logo {
+        /* display: inline-block; */
+        position: static;
+        margin-right: 65px;
+        flex-grow: 0;
+    }
+
+    /* Styling of elements in the main menu */
+    .navbar .main-menu > :where(ul, li) {
+        display: inline-block;
+        margin: 0 45px 0 0;
+    }
+
+    .navbar .main-menu {
+        /* display: inline-block; */
+        position: static;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-items: space-between;
+        flex-grow: 1;
+    }
+
+    .navbar .main-menu > * {
+        flex-grow: 0;
+    }
+
+    .navbar .main-menu > .separator {
+        display: inline-block;
+        flex-grow: 1;
+    }
+
+    .menu.main-menu > .item-button {
+        margin-right: 20px;
+    }
+    .menu.main-menu > .item-button+.item-button {
+        margin-top: 0;
+    }
+
+    .menu.main-menu > li:last-of-type {
+        margin-right: 42px;
+    }
+
+    /* Intro styling */
 
     .intro {
         flex-direction: row;
@@ -451,7 +481,16 @@ TODO: find a saner way to position the entire navbar or at least LOOK for a sane
         height: 56px;
     }
 
-    .menu .btn {}
+    .navbar .btn {
+        height: 42px;
+        margin-bottom: 2px;
+    }
+
+    .navbar .btn > p {
+        margin-left: 23px;
+        margin-right: 23px;
+        padding-top: 2px;
+    }
 
     .client-logos {
         margin: auto 0 0 0;
