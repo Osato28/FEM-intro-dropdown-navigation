@@ -1,4 +1,3 @@
-
 /* 
 
 ███    ███  ██████  ██████  ██ ██      ███████ 
@@ -14,9 +13,13 @@
 
 html {
     font-family: 'Epilogue', sans-serif;
-    --clr-almost-white: hsl(0,0%,98%);
-    --clr-medium-gray: hsl(0,0%,41%);
-    --clr-almost-black: hsl(0,0%,8%);
+    --clr-almost-white: hsl(0, 0%, 98%);
+    --clr-medium-gray: hsl(0, 0%, 41%);
+    --clr-almost-black: hsl(0, 0%, 8%);
+}
+
+p {
+    margin: auto 0 auto 0;
 }
 
 /* Resetting ul, li */
@@ -32,23 +35,24 @@ html {
 }
 
 a {
-    color:unset;
+    color: unset;
     text-decoration: none;
 }
 
 /* decorative for menu items */
 
 .menu-header.icon-menu {
-    display:block;
-    position:absolute;
+    display: block;
+    position: absolute;
     top: 32px;
     right: 32px;
     transform: translate(50%, -50%);
-    width:32px;
-    height:18px;
+    width: 32px;
+    height: 18px;
     background-image: url(../assets/icon-menu.svg);
 }
-.menu.toggle.toggled > .menu-header.icon-menu {
+
+.menu.toggle.toggled>.menu-header.icon-menu {
     width: 24px;
     height: 24px;
     background-image: url(../assets/icon-close-menu.svg);
@@ -64,39 +68,41 @@ a {
     background-image: url(../assets/icon-arrow-down.svg);
     background-size: 10px 6px;
 }
-.menu.toggle.toggled > .menu-header.dropdown::after {
+
+.menu.toggle.toggled>.menu-header.dropdown::after {
     background-image: url(../assets/icon-arrow-up.svg);
 }
 
 
 /* menu toggle dropdown functionality */
-.main-menu :where(ul, li) { 
-    display:none 
-} 
+.main-menu :where(ul, li) {
+    display: none
+}
+
 /* selector targets immediate descendants with .submenu class when menu-toggle is focused */
-.menu.toggle.toggled > :where(ul, li) {
+.menu.toggle.toggled> :where(ul, li) {
     display: block;
 }
 
 /* Specifically for the main manu */
 .menu.main-menu.toggled {
     position: absolute;
-    background-color: hsl(0,0%,98%);
+    background-color: hsl(0, 0%, 98%);
     top: 0%;
     right: 0%;
     /* when focused, expand menu to 100% height and  */
-    width:240px;
-    height:100%;
+    width: 240px;
+    height: 100%;
     z-index: 1002;
 }
 
 /* Transparent black backdrop */
 
-.main-menu + .backdrop {
+.main-menu+.backdrop {
     display: none;
 }
 
-.main-menu.toggled + .backdrop {
+.main-menu.toggled+.backdrop {
     display: block;
     position: absolute;
     background-color: rgba(0, 0, 0, 30%);
@@ -108,20 +114,21 @@ a {
 }
 
 /* Styling of elements in the main menu */
-.menu.main-menu > :where(ul,li) {
+.menu.main-menu> :where(ul, li) {
     margin-top: 32px;
     margin-left: 25px;
     margin-right: 20px;
     margin-bottom: auto;
 }
-.menu.main-menu > .item-button + .item-button {
+
+.menu.main-menu>.item-button+.item-button {
     margin-top: 5px;
 }
 
 /* First non-icon element in the menu gets a special place in this hell 
 Good grief, this is disgusting
 TODO: find a saner way to position the entire navbar or at least LOOK for a saner way */
-.menu.main-menu > :nth-child(2) {
+.menu.main-menu> :nth-child(2) {
     margin-top: 82px;
 }
 
@@ -133,7 +140,8 @@ TODO: find a saner way to position the entire navbar or at least LOOK for a sane
     margin-right: 20px;
     margin-bottom: auto;
 }
-.submenu .item + .item {
+
+.submenu .item+.item {
     margin-top: 24px;
 }
 
@@ -185,22 +193,30 @@ body {
     margin: 24px auto 24px 17px;
 }
 
-.intro.hero-img {
-    --img-width: 100%;
-    --img-height: auto;
-    content: url(../assets/image-hero-mobile.png);
-    width:100%;
-    height:auto;
+.intro .hero-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-.intro.header {
+.intro .hero-img img.desktop {
+    display: none;
+}
+
+.intro .hero-img img.mobile {
+    display: block;
+}
+
+.intro .header {
     text-align: center;
+    font-size: 32px;
     width: 90%;
     margin: 50px auto 28px auto;
 }
 
-.intro.text {
+.intro .text {
     text-align: center;
+    font-size: 16px;
     width: 90%;
     margin: auto auto 28px auto;
 }
@@ -213,6 +229,7 @@ body {
     text-align: center;
     border-radius: 15px;
 }
+
 .btn.bg-black {
     background-color: var(--clr-almost-black);
     color: var(--clr-almost-white);
@@ -220,27 +237,42 @@ body {
     border-width: 2px;
     border-style: solid;
 }
+
 .btn.bg-black:hover {
     background-color: var(--clr-almost-white);
     color: var(--clr-almost-black);
 }
+
 .btn.bg-white {
     background-color: var(--clr-almost-white);
     color: var(--clr-medium-gray);
 }
+
 .btn.bg-white:hover {
     color: var(--clr-almost-black);
 }
+
 .btn.border-black {
     border-color: var(--clr-almost-black);
     border-width: 2px;
     border-style: solid;
 }
 
+.btn > p {
+    /* Compensating for the font's vertical failure to center */
+    line-height: 1em;
+    padding-top: 5px;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+}
+
 .intro .btn {
     width: 138px;
     height: 48px;
-    margin: auto auto 48px auto; 
+    margin: auto auto 48px auto;
 }
 
 .menu .btn {
@@ -249,40 +281,45 @@ body {
     margin: auto;
 }
 
+.btn > p {}
+
 .client-logos {
     display: flex;
-    width: 90%;
     margin: auto;
     justify-content: space-between;
     align-content: center;
-
-    /* display: inline-grid;
-    grid-template-columns: 80px 52px 63px 58px;
-    grid-template-rows: 80px;
-    column-gap: auto;
-    width: 90%;
-    margin: auto; */
-
+    /* setting fixed font-size to make all images's widths depend on it via em */
+    /* font-size: 8px */
+    font-size: 2.13vw;
 }
+
 .client-logos img {
     align-self: center;
     justify-self: center;
 }
+
 .client-logos img:nth-child(1) {
     /* width: 80px; */
-    width: 21vw;
+    /* width: 21vw; */
+    max-width: 10em;
 }
+
 .client-logos img:nth-child(2) {
     /* width: 52px; */
-    width: 14vw;
+    /* width: 14vw; */
+    max-width: 6.5em;
 }
+
 .client-logos img:nth-child(3) {
     /* width: 63px; */
-    width: 17vw;
+    /* width: 17vw; */
+    max-width: 7.875em;
 }
+
 .client-logos img:nth-child(4) {
     /* width: 58px; */
-    width: 16vw;
+    /* width: 16vw; */
+    max-width: 7.25em;
 }
 
 /* 
@@ -294,3 +331,143 @@ body {
 ██████  ███████ ███████ ██   ██    ██     ██████  ██  
 
 */
+
+
+@media (min-width: 576px) {
+
+    .menu-header.icon-menu {}
+
+    .menu.toggle.toggled>.menu-header.icon-menu {}
+
+    .menu-header.dropdown::after {}
+
+    .menu.toggle.toggled>.menu-header.dropdown::after {}
+
+
+    /* menu toggle dropdown functionality */
+    .main-menu :where(ul, li) {}
+
+    /* selector targets immediate descendants with .submenu class when menu-toggle is focused */
+    .menu.toggle.toggled> :where(ul, li) {}
+
+    /* Specifically for the main manu */
+    .menu.main-menu.toggled {}
+
+    /* Transparent black backdrop */
+
+    .main-menu+.backdrop {}
+
+    .main-menu.toggled+.backdrop {}
+
+    /* Styling of elements in the main menu */
+    .menu.main-menu> :where(ul, li) {}
+
+    .menu.main-menu>.item-button+.item-button {}
+
+    /* First non-icon element in the menu gets a special place in this hell 
+Good grief, this is disgusting
+TODO: find a saner way to position the entire navbar or at least LOOK for a saner way */
+    .menu.main-menu> :nth-child(2) {}
+
+    /* Styling of items in the submenus */
+
+    .submenu .item {}
+
+    .submenu .item+.item {}
+
+    .item.icon::before {}
+
+    .item.icon.list::before {}
+
+    .item.icon.calendar::before {}
+
+    .item.icon.bell::before {}
+
+    .item.icon.clock::before {}
+
+    /* Mobile styling */
+
+    .navbar .logo {}
+
+    .intro {
+        flex-direction: row;
+    }
+
+    .intro .hero-img {
+        order: 2;
+        flex-shrink: 1;
+        max-height: 80vh;
+        flex-basis: fit-content;
+        flex-grow: 0;
+    }
+
+    .intro .hero-img img.mobile {
+        display: none;
+    }
+
+    .intro .hero-img img.desktop {
+        display: block;
+        margin: auto;
+    }
+
+    .intro .cta {
+        order: 1;
+        flex-shrink: 0;
+        max-width: 58vw;
+        display: flex;
+        flex-direction: column;
+        padding-left: 10vw;
+        padding-right: 10vw;
+        box-sizing: border-box;
+    }
+
+    .intro .header {
+        font-size: 64px;
+        text-align: start;
+        margin: 110px 0 60px 0;
+    }
+
+    .intro .text {
+        font-size: 18px;
+        text-align: start;
+        margin: 0 0 50px 0;
+    }
+
+    .btn {}
+
+    .btn.bg-black {}
+
+    .btn.bg-black:hover {}
+
+    .btn.bg-white {}
+
+    .btn.bg-white:hover {}
+
+    .btn.border-black {}
+
+    .intro .btn {
+        margin: 0 0 auto 0;
+        width: 163px;
+        height: 56px;
+    }
+
+    .menu .btn {}
+
+    .client-logos {
+        margin: auto 0 0 0;
+        justify-content: flex-start;
+    }
+
+    .client-logos img {
+        margin-right: 1em;
+    }
+
+    .client-logos img:nth-child(1) {}
+
+    .client-logos img:nth-child(2) {}
+
+    .client-logos img:nth-child(3) {}
+
+    .client-logos img:nth-child(4) {}
+
+}

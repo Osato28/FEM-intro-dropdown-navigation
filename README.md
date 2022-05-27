@@ -8,6 +8,7 @@
 - [ ] Desktop styling
 - [ ] Utopia fluid scaling
 - [ ] Optional: animate 
+- [ ] Optional: optimize performance (display:none -> visibility:hidden, etc.)
 - [ ] Convert all px values to rem or vw
 - [ ] Search all files for leftover "TODO" comments, fix related issues
 - [ ] Cleanup + comment JS, purge+minify CSS, remove unused fonts
