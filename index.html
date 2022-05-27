@@ -21,28 +21,33 @@
 <body>
     <nav class="navbar" role="navigation">
         <img src="assets/logo.svg" alt="Go back to main page" class="logo">
-        <ul class="menu main-menu toggle" data-class-toggled="toggled">
+        <div class="backdrop toggle" data-class-toggled="toggled">
             <div class="menu-header icon-menu"></div>
-            <ul class="menu submenu toggle hover" data-class-toggled="toggled">
-                <span class="menu-header dropdown">Features</span>
-                <li class="item icon list">Todo List</li>
-                <li class="item icon calendar">Calendar</li>
-                <li class="item icon bell">Reminders</li>
-                <li class="item icon clock">Planning</li>
+            <ul class="menu main-menu">
+                <li class="toggle hover" data-class-toggled="toggled">
+                    <span class="menu-header dropdown">Features</span>
+                    <ul class="menu submenu">
+                        <li class="item icon list">Todo List</li>
+                        <li class="item icon calendar">Calendar</li>
+                        <li class="item icon bell">Reminders</li>
+                        <li class="item icon clock">Planning</li>
+                    </ul>
+                </li>
+                <li class="toggle hover" data-class-toggled="toggled">
+                    <span class="menu-header dropdown">Company</span>
+                    <ul class="menu submenu">
+                        <li class="item"><a href="#">History</a></li>
+                        <li class="item"><a href="#">Our Team</a></li>
+                        <li class="item"><a href="#">Blog</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">About</a></li>
+                <div class="separator"></div>
+                <li class="item-button"><a href="#"><div class="btn bg-white border-black"><p>Login</p></div></a></li>
+                <li class="item-button"><a href="#"><div class="btn bg-white border-black"><p>Register</p></div></a></li>
             </ul>
-            <ul class="menu submenu toggle hover" data-class-toggled="toggled">
-                <span class="menu-header dropdown">Company</span>
-                <li class="item"><a href="#">History</a></li>
-                <li class="item"><a href="#">Our Team</a></li>
-                <li class="item"><a href="#">Blog</a></li>
-            </ul>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">About</a></li>
-            <div class="separator"></div>
-            <li class="item-button"><a href="#"><div class="btn bg-white"><p>Login</p></div></a></li>
-            <li class="item-button"><a href="#"><div class="btn bg-white border-black"><p>Register</p></div></a></li>
-        </ul>
-        <div class="backdrop"></div>
+        </div>
     </nav>
 
     <section class="intro">
@@ -51,7 +56,7 @@
             <img src="./assets/image-hero-mobile.png" alt="" class="mobile">
         </div>
         <div class="cta">
-            <h1 class="header">Make remote work</h1>
+            <h1 class="header">Make remote&nbsp;work</h1>
     
             <p class="text">Get your team in sync, no matter your location. Streamline processes,
                 create team rituals, and watch productivity soar.</p>

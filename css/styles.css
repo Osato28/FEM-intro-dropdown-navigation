@@ -42,8 +42,10 @@ a {
 /* decorative for menu items */
 
 .menu-header.icon-menu {
+    visibility: visible;
     display: block;
     position: absolute;
+    z-index: 1010;
     top: 32px;
     right: 32px;
     transform: translate(50%, -50%);
@@ -52,10 +54,14 @@ a {
     background-image: url(../assets/icon-menu.svg);
 }
 
-.menu.toggle.toggled>.menu-header.icon-menu {
+.toggle.toggled > .menu-header.icon-menu {
     width: 24px;
     height: 24px;
     background-image: url(../assets/icon-close-menu.svg);
+}
+
+.toggle.toggled > .menu-header.dropdown::after {
+    background-image: url(../assets/icon-arrow-up.svg);
 }
 
 .menu-header.dropdown::after {
@@ -69,23 +75,31 @@ a {
     background-size: 10px 6px;
 }
 
-.menu.toggle.toggled>.menu-header.dropdown::after {
-    background-image: url(../assets/icon-arrow-up.svg);
-}
-
 
 /* menu toggle dropdown functionality */
-.main-menu :where(ul, li) {
-    display: none
+.main-menu {
+    visibility: hidden;
+    /* height: 0; */
+}
+.main-menu > :where(ul, li) {
+    visibility: hidden;
 }
 
-/* selector targets immediate descendants with .submenu class when menu-toggle is focused */
-.menu.toggle.toggled > :where(ul, li) {
+.menu > :where(ul, li) {
+    display:none;
+}
+
+/* if toggle is toggled, the menu next to it gets rendered */
+.toggle.toggled > .main-menu {
+    visibility: visible;
+}
+.toggle.toggled > .menu > :where(ul, li) {
+    visibility: visible;
     display: block;
 }
 
 /* Specifically for the main manu */
-.menu.main-menu.toggled {
+.toggle.toggled > .menu.main-menu {
     position: absolute;
     background-color: hsl(0, 0%, 98%);
     top: 0%;
@@ -93,16 +107,20 @@ a {
     /* when focused, expand menu to 100% height and  */
     width: 240px;
     height: 100%;
-    z-index: 1002;
+    z-index: 1000;
 }
 
 /* Transparent black backdrop */
 
-.main-menu + .backdrop {
-    display: none;
+.backdrop {
+    /* Using visibility:hidden instead of display: none for two reasons.
+    1) display: none is excluded from DOM, so its child (the icon menu-header) wouldn't be rendered
+    2) toggling display on and off is costly, as the entire DOM gets re-rendered; visibility:hidden is cheaper, as the element is pre-rendered */
+    visibility: hidden;
 }
 
-.main-menu.toggled + .backdrop {
+.backdrop.toggled {
+    visibility: visible;
     display: block;
     position: absolute;
     background-color: rgba(0, 0, 0, 30%);
@@ -121,14 +139,11 @@ a {
     margin-bottom: auto;
 }
 
-.menu.main-menu > .item-button+.item-button {
-    margin-top: 5px;
-}
 
 /* First non-icon element in the menu gets a special place in this hell 
 Good grief, this is disgusting
 TODO: find a saner way to position the entire navbar or at least LOOK for a saner way */
-.menu.main-menu > :where(:nth-child(2)) {
+.menu.main-menu > :first-child {
     margin-top: 82px;
 }
 
@@ -258,6 +273,12 @@ body {
     border-style: solid;
 }
 
+.btn.border-white {
+    border-color: var(--clr-almost-white);
+    border-width: 2px;
+    border-style: solid;
+}
+
 .btn > p {
     /* Compensating for the font's vertical failure to center */
     line-height: 1em;
@@ -343,12 +364,10 @@ body {
 
     .menu-header.dropdown::after {}
 
-    .menu.toggle.toggled > .menu-header.dropdown::after {}
-
 
     /* TODO: menu HOVER dropdown functionality */
 
-    .main-menu.toggled + .backdrop {
+    .backdrop.toggled {
         display: none;
     }
 
@@ -374,9 +393,13 @@ body {
         display: flex;
     }
 
+    .navbar * {
+        visibility: visible;
+    }
+
     .navbar .logo {
-        /* display: inline-block; */
         position: static;
+        /* TODO: translate all leftover "margin-" to single-string "margin" where applicable */
         margin-top: 32px;
         margin-bottom: 30px;
         margin-right: 65px;
@@ -384,36 +407,42 @@ body {
         flex-grow: 0;
     }
 
-    /* Styling of elements in the main menu */
-    .navbar .main-menu > :where(ul, li) {
-        display: inline-block;
-        margin: 0 45px 0 0;
-    }
-
-    .navbar .main-menu {
-        /* display: inline-block; */
+    .backdrop {
         position: static;
-        display: flex;
+        display: block;
         flex-direction: row;
         align-items: center;
         justify-items: space-between;
         flex-grow: 1;
     }
 
-    .navbar .main-menu > * {
-        flex-grow: 0;
+    .menu.main-menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+        margin-top: 20px;
     }
 
-    .navbar .main-menu > .separator {
+    .menu.main-menu > * {
+        margin: unset;
+    }
+
+    /* Styling of elements in the main menu */
+    .menu.main-menu > :first-child, 
+    .menu.main-menu > :where(ul, li) {
+        flex-grow: 0;
+        display: inline-block;
+        margin: 0 38px 0 0;
+    }
+
+    .menu.main-menu > .separator {
         display: inline-block;
         flex-grow: 1;
     }
 
     .menu.main-menu > .item-button {
         margin-right: 20px;
-    }
-    .menu.main-menu > .item-button+.item-button {
-        margin-top: 0;
     }
 
     .menu.main-menu > li:last-of-type {
@@ -486,7 +515,7 @@ body {
 
     .navbar .btn {
         height: 42px;
-        margin-bottom: 2px;
+        margin-bottom: 4px;
     }
 
     .navbar .btn > p {

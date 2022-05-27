@@ -13,16 +13,16 @@ function untoggleAll(element, toggledClass) {
     }
 }
 
-toggleElements = document.getElementsByClassName('toggle');
+const toggleElements = document.getElementsByClassName('toggle');
 
 document.addEventListener("click", (ev) => {
-    console.log("target: ", ev.target);
+    // console.log("target: ", ev.target);
 
     let targetFound = false;
     for (el of toggleElements) {
         // Check if the onClick's target is an immediate child of any elements that have .toggle class
         if (el.firstElementChild === ev.target) {
-            console.log("container: ", el);
+            // console.log("container: ", el);
             toggle(el);
         }
         if (el.contains(ev.target)) {
