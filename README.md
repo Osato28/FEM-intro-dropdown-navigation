@@ -4,7 +4,7 @@
 - [x] HTML structure
 - [x] Mobile dropdown menu functionality
 - [x] Mobile styling
-- [ ] Desktop dropdown menu functionality
+- [x] Desktop dropdown menu functionality
 - [ ] Desktop styling
 - [ ] Optional: 4K styling
 - [ ] Utopia fluid scaling

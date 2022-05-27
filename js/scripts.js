@@ -13,6 +13,10 @@ function untoggleAll(element, toggledClass) {
     }
 }
 
+// TODO: check for media query; enable toggling only if window is mobile-size
+// Make sure the check is run EVERY TIME the click happens
+// Don't want tablet users to reload the page every time they use a narrow window in their browser
+
 const toggleElements = document.getElementsByClassName('toggle');
 
 document.addEventListener("click", (ev) => {
