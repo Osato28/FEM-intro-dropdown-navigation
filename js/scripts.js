@@ -6,35 +6,49 @@ function toggle(element) {
     : element.classList.add(toggledClass);
 }
 
-function untoggleAll(element, toggledClass) {
-    const toggledChildren = element.getElementsByClassName(toggledClass);
-    for (const el of toggledChildren) {
-        el?.classList.remove(toggledClass);
+function untoggleAllChildren(element) {
+    // using querySelectorAll because it returns a static collection;
+    // elementsByClassName return a live one that drops  as classes are removed.
+    const toggledChildren = element.querySelectorAll(".toggled");
+    // 
+    for (var el of toggledChildren) {
+        el?.classList.remove("toggled");
     }
 }
 
-// TODO: check for media query; enable toggling only if window is mobile-size
-// Make sure the check is run EVERY TIME the click happens
-// Don't want tablet users to reload the page every time they use a narrow window in their browser
-
 const toggleElements = document.getElementsByClassName('toggle');
 
-document.addEventListener("click", (ev) => {
-    // console.log("target: ", ev.target);
+// Variable that checks whether the 
+var isMobile = matchMedia('(max-width: 767px)').matches;
+// The check runs every resize (turning the tablet from portrait to landscape, for instance)
+window.addEventListener('resize', (ev) => {
+    newValue = matchMedia('(max-width: 767px)').matches;
+    if (isMobile !== newValue) {
+        console.log(isMobile, newValue, "untoggling")
+        isMobile = newValue;
 
-    let targetFound = false;
-    for (el of toggleElements) {
-        // Check if the onClick's target is an immediate child of any elements that have .toggle class
-        if (el.firstElementChild === ev.target) {
-            // console.log("container: ", el);
-            toggle(el);
+        // Untoggle all toggled elements if isMobile changes
+        untoggleAllChildren(document);
+    }
+});
+
+function clickToggle(ev) {
+    if (isMobile) {
+        let targetFound = false;
+        for (el of toggleElements) {
+            // Check if the onClick's target is an immediate child of any elements that have .toggle class
+            if (el.firstElementChild === ev.target) {
+                toggle(el);
+            }
+            if (el.contains(ev.target)) {
+                targetFound = true;
+            }
         }
-        if (el.contains(ev.target)) {
-            targetFound = true;
+    
+        if (!targetFound) {
+            untoggleAllChildren(document);
         }
     }
+}
 
-    if (!targetFound) {
-        untoggleAll(document, "toggled");
-    }
-})
+document.addEventListener("click", clickToggle)
