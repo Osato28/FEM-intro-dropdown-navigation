@@ -9,17 +9,97 @@
 
 */
 
+/* TODO: merge all redundant selectors */
+
 /* Font import, variables */
 
-html {
+:root {
     font-family: 'Epilogue', sans-serif;
     --clr-almost-white: hsl(0, 0%, 98%);
     --clr-medium-gray: hsl(0, 0%, 41%);
     --clr-almost-black: hsl(0, 0%, 8%);
+    
+    /* Default values are for 320px */
+    /* fs - font-size
+    w - width
+    pt - padding-top
+    lh - line-height */
+    --var-menu-text-fs: 14px;
+    --var-menu-logo-w: 84px;
+    --var-menu-logo-h: 28px;
+
+    --var-menu-btn-fs: 14px;
+    --var-menu-btn-pt: 5px;
+    --var-menu-btn-h: 50px;
+    --var-menu-btn-w: 0;
+
+    --var-menu-first-mt: 82px;
+    --var-menu-item-margin: 32px 25px 20px 25px;
+    --var-menu-submenu-margin: 32px 25px 20px 25px;
+    --var-menu-btn-margin: 32px 25px 20px 25px;
+    /* If 0, then not used in that layout */
+
+    --var-intro-header-fs: 28px;
+    --var-intro-text-fs: 14px;
+    --var-intro-text-lh: 1.1em;
+    --var-intro-h: inherit;
+
+    --var-intro-btn-h: 48px;
+    --var-intro-btn-w: 138px;
+    --var-intro-btn-fs: 16px;
+    --var-intro-btn-lh: 1em;
+    --var-intro-btn-pt: 5px;
+
+    --var-intro-logos-fs: 2.5vw;
+}
+
+@media (min-width: 374px) {
+    /* for transparency's sake, all vars are redefined per media query during development
+    TODO: remove unchanged vars from media queries */
+    :root {
+    
+        --var-intro-header-fs: 35px;
+        --var-intro-text-fs: 17px;
+        --var-intro-text-lh: 1.6em;
+        /* --var-intro-h: 540px; */
+    
+        --var-intro-btn-h: 50px;
+        --var-intro-btn-w: 150px;
+        --var-intro-btn-fs: 17px;
+        --var-intro-btn-lh: 1em;
+        --var-intro-btn-pt: 3px;
+    
+        --var-intro-logos-fs: 2.13vw;
+    }
+}
+
+@media (min-width: 1200px) {
+
+}
+
+/* Resetting */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-items: stretch;
+}
+
+:where(*) {
+    margin: 0; padding: 0;
+}
+
+h1 {
+    margin: 0;
 }
 
 p {
-    margin: auto 0 auto 0;
+    /* Make paragraphs center vertically by default */
+    margin: auto 0;
 }
 
 /* Resetting ul, li */
@@ -83,6 +163,7 @@ a {
 }
 .main-menu > :where(ul, li) {
     visibility: hidden;
+    font-size: var(--var-menu-text-fs);
 }
 
 .menu > :where(ul, li) {
@@ -133,10 +214,8 @@ a {
 
 /* Styling of elements in the main menu */
 .menu.main-menu > :where(ul, li) {
-    margin-top: 32px;
-    margin-left: 25px;
-    margin-right: 20px;
-    margin-bottom: auto;
+    /* margin: 32px 25px 20px auto; */
+    margin: var(--var-menu-item-margin);
 }
 
 
@@ -144,16 +223,13 @@ a {
 Good grief, this is disgusting
 TODO: find a saner way to position the entire navbar or at least LOOK for a saner way */
 .menu.main-menu > :first-child {
-    margin-top: 82px;
+    margin-top: var(--var-menu-first-mt);
 }
 
 /* Styling of items in the submenus */
 
 .submenu .item {
-    margin-top: 32px;
-    margin-left: 25px;
-    margin-right: 20px;
-    margin-bottom: auto;
+    margin: var(--var-menu-submenu-margin);
 }
 
 .submenu .item+.item {
@@ -203,8 +279,8 @@ body {
 }
 
 .navbar .logo {
-    width: 84px;
-    height: 28px;
+    width: var(--var-menu-logo-w);
+    height: var(--var-menu-logo-h);
     margin: 24px auto 24px 17px;
 }
 
@@ -224,18 +300,55 @@ body {
 
 .intro .header {
     text-align: center;
-    font-size: 40px;
+    font-size: var(--var-intro-header-fs);
     width: 90%;
-    margin: 50px auto 28px auto;
+    /* margin: 50px auto 28px auto; */
 }
 
 .intro .text {
     text-align: center;
-    font-size: 18px;
-    line-height: 1.6em;
+    font-size: var(--var-intro-text-fs);
+    line-height: var(--var-intro-text-lh);
     width: 90%;
-    margin: auto auto 28px auto;
+    /* margin: auto auto 28px auto; */
 }
+
+/* Fluid spacing via separators; replaces margins for .cta's children */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: var(--var-intro-h);
+}
+
+.intro .hero-img {
+    display: block;
+}
+
+.intro .cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.intro .cta > * {
+    flex-grow: 0;
+}
+
+.intro .cta > .separator {
+    display: block;
+    flex-grow: 5;
+}
+
+.intro .cta > .separator:nth-of-type(1) {
+    flex-grow: 5;
+}
+.intro .cta > .separator:nth-of-type(4) {
+    flex-grow: 6;
+}
+
 
 .btn {
     display: flex;
@@ -280,31 +393,31 @@ body {
     border-style: solid;
 }
 
-.btn > p {
-    /* Compensating for the font's vertical failure to center */
-    line-height: 1em;
-    padding-top: 5px;
-}
-
-.intro {
-    display: flex;
-    flex-direction: column;
-}
-
 .intro .btn {
-    width: 138px;
-    height: 48px;
-    margin: auto auto 48px auto;
+    font-size: var(--var-intro-btn-fs);
+    width: var(--var-intro-btn-w);
+    height: var(--var-intro-btn-h);
+    /* margin: auto auto 48px auto; */
     font-weight: 500;
 }
 
+.intro .btn > p {
+    line-height: 1em;
+    padding-top: var(--var-intro-btn-pt);
+}
+
 .navbar .btn {
-    height: 50px;
+    font-size: var(--var-menu-btn-fs);
+    height: var(--var-menu-btn-h);
     max-width: 100%;
     margin: auto;
 }
 
-.btn > p {}
+.navbar .btn > p {
+    /* Compensating for the font's vertical failure to center */
+    line-height: 1em;
+    padding-top: var(--var-menu-btn-pt);
+}
 
 .client-logos {
     display: flex;
@@ -313,7 +426,8 @@ body {
     align-content: center;
     /* setting fixed font-size to make all images's widths depend on it via em */
     /* font-size: 8px */
-    font-size: 2.13vw;
+    font-size: var(--var-intro-logos-fs);
+    width: 90%;
 }
 
 .client-logos > * {
@@ -372,12 +486,6 @@ body {
 
 
 @media (min-width: 768px) {
-
-    /* Structuring of the whole page */
-
-    html, body {
-        height: 100%;
-    }
 
     body {
         display: flex;
@@ -462,7 +570,7 @@ body {
     .menu.main-menu > :where(ul, li) {
         visibility: visible;
         flex-grow: 0;
-        display: inline-block;
+        display: inline-flex;
         margin: 0 38px 0 0;
     }
     
@@ -498,9 +606,9 @@ body {
     .navbar .hover .submenu {
         position: absolute;
         background-color: var(--clr-almost-white);
-        top: 170%;
+        top: 120%;
         border-radius: 15px;
-        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 10%);
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 10%);
         padding: 24px
         /* top: 0%;
         left: 0%; */
@@ -513,11 +621,6 @@ body {
 
     /* Intro styling */
 
-    /* TODO: figure out how to make it look better and why the damned image doesn't want to get smaller */
-
-    .intro {
-    }
-
     .intro .hero-img {
         order: 2;
         flex-shrink: 1;
@@ -525,14 +628,6 @@ body {
         max-width: 100%;
         flex-basis: fit-content;
         flex-grow: 0;
-    }
-
-    .intro-wrapper > * {
-        flex-grow: 0;
-    }
-    
-    .intro-wrapper > .desktop-separator {
-        flex-grow: 1;
     }
 
     .intro {
@@ -566,19 +661,14 @@ body {
         box-sizing: border-box;
     }
 
-    .intro .cta > * {
-        flex-grow: 0;
-    }
-
-    .intro .cta > .desktop-separator {
-        display: block;
+    .intro .cta > .separator {
         flex-grow: 3;
     }
 
-    .intro .cta > .desktop-separator:nth-of-type(1) {
+    .intro .cta > .separator:nth-of-type(1) {
         flex-grow: 5;
     }
-    .intro .cta > .desktop-separator:nth-of-type(4) {
+    .intro .cta > .separator:nth-of-type(4) {
         flex-grow: 6;
     }
 
