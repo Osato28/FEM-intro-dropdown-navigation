@@ -24,19 +24,23 @@
     w - width
     pt - padding-top
     lh - line-height */
-    --var-menu-text-fs: 14px;
+    --var-menu-text-fs: 12px;
+
+    --var-menu-icon-h: 16px;
+    --var-menu-icon-mb: -2px;
+
     --var-menu-logo-w: 84px;
     --var-menu-logo-h: 28px;
 
-    --var-menu-btn-fs: 14px;
+    --var-menu-btn-fs: 12px;
     --var-menu-btn-pt: 5px;
-    --var-menu-btn-h: 50px;
+    --var-menu-btn-h: 40px;
     --var-menu-btn-w: 0;
 
-    --var-menu-first-mt: 82px;
-    --var-menu-item-margin: 32px 25px 20px 25px;
-    --var-menu-submenu-margin: 32px 25px 20px 25px;
-    --var-menu-btn-margin: 32px 25px 20px 25px;
+    --var-menu-first-mt: 60px;
+    --var-menu-item-margin: 20px 25px 20px 25px;
+    --var-menu-submenu-margin: 20px 25px 20px 25px;
+    --var-menu-btn-margin: 12px 25px 10px 25px;
     /* If 0, then not used in that layout */
 
     --var-intro-header-fs: 28px;
@@ -57,6 +61,25 @@
     /* for transparency's sake, all vars are redefined per media query during development
     TODO: remove unchanged vars from media queries */
     :root {
+        --var-menu-text-fs: 14px;
+    
+        --var-menu-icon-h: 20px;
+        --var-menu-icon-mb: -4px;
+        --var-menu-logo-w: 84px;
+        --var-menu-logo-h: 28px;
+
+        --var-menu-logo-w: 84px;
+        --var-menu-logo-h: 28px;
+    
+        --var-menu-btn-fs: 14px;
+        --var-menu-btn-pt: 5px;
+        --var-menu-btn-h: 50px;
+        --var-menu-btn-w: 0;
+
+        --var-menu-first-mt: 82px;
+        --var-menu-item-margin: 32px 25px 20px 25px;
+        --var-menu-submenu-margin: 20px 25px 16px 25px;
+        --var-menu-btn-margin: 12px 25px 20px 25px;
     
         --var-intro-header-fs: 35px;
         --var-intro-text-fs: 17px;
@@ -73,8 +96,64 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 480px) {
+    :root {
+        --var-intro-header-fs: 35px;
+        --var-intro-text-fs: 17px;
+        --var-intro-text-lh: 1.6em;
+        /* --var-intro-h: 540px; */
+    
+        --var-intro-btn-h: 50px;
+        --var-intro-btn-w: 150px;
+        --var-intro-btn-fs: 17px;
+        --var-intro-btn-lh: 1em;
+        --var-intro-btn-pt: 3px;
+    
+        --var-intro-logos-fs: 2.13vw;
+    }
+}
 
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 1024px) {
+
+}
+
+@media (min-width: 1200px) {
+    :root {
+        /* --var-menu-text-fs: 0; */
+    
+        /* --var-menu-icon-h: 0;
+        --var-menu-icon-mb: 0; */
+    
+        /* --var-menu-logo-w: 0;
+        --var-menu-logo-h: 0; */
+    
+        /* --var-menu-btn-fs: 0;
+        --var-menu-btn-pt: 0;
+        --var-menu-btn-h: 0;
+        --var-menu-btn-w: 0; */
+    
+        /* --var-menu-first-mt: 0;
+        --var-menu-item-margin: 0;
+        --var-menu-submenu-margin: 0;
+        --var-menu-btn-margin: 0; */
+    
+        --var-intro-header-fs: 0;
+        --var-intro-text-fs: 0;
+        --var-intro-text-lh: 0;
+        --var-intro-h: 0;
+    
+        --var-intro-btn-h: 0;
+        --var-intro-btn-w: 0;
+        --var-intro-btn-fs: 0;
+        --var-intro-btn-lh: 0;
+        --var-intro-btn-pt: 0;
+    
+        --var-intro-logos-fs: 0;
+    }
 }
 
 /* Resetting */
@@ -241,35 +320,36 @@ TODO: find a saner way to position the entire navbar or at least LOOK for a sane
     content: ' ';
     margin-right: 14px;
     box-sizing: border-box;
-    width: 20px;
-    height: 20px;
+    width: var(--var-menu-icon-h);
+    height: var(--var-menu-icon-h);
 }
 
 .item.icon.list::before {
     background-image: url(../assets/icon-todo.svg);
-    background-size: 20px 20px;
-    margin-bottom: -3px;
+    background-size: var(--var-menu-icon-h) var(--var-menu-icon-h);
+    margin-bottom: var(--var-menu-icon-mb);
 }
 
 .item.icon.calendar::before {
     background-image: url(../assets/icon-calendar.svg);
-    background-size: 20px 20px;
-    margin-bottom: -3px;
+    background-size: var(--var-menu-icon-h) var(--var-menu-icon-h);
+    margin-bottom: var(--var-menu-icon-mb);
 }
 
 .item.icon.bell::before {
+    --var-menu-icon-w: calc(0.8 * var(--var-menu-icon-h));
     margin-left: 2px;
     margin-right: 16px;
-    width: 16px;
+    width: var(--var-menu-icon-w);
     background-image: url(../assets/icon-reminders.svg);
-    background-size: 16px 20px;
-    margin-bottom: -4px;
+    background-size: var(--var-menu-icon-w) var(--var-menu-icon-h);
+    margin-bottom: var(--var-menu-icon-mb);
 }
 
 .item.icon.clock::before {
     background-image: url(../assets/icon-planning.svg);
-    background-size: 20px 20px;
-    margin-bottom: -4px;
+    background-size: var(--var-menu-icon-h) var(--var-menu-icon-h);
+    margin-bottom: var(--var-menu-icon-mb);
 }
 
 /* Mobile styling */
@@ -404,6 +484,10 @@ body {
 .intro .btn > p {
     line-height: 1em;
     padding-top: var(--var-intro-btn-pt);
+}
+
+.navbar .item-button {
+    margin: var(--var-menu-btn-margin);
 }
 
 .navbar .btn {
