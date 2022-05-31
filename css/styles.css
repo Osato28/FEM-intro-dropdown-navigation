@@ -224,14 +224,15 @@ body {
 
 .intro .header {
     text-align: center;
-    font-size: 32px;
+    font-size: 40px;
     width: 90%;
     margin: 50px auto 28px auto;
 }
 
 .intro .text {
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 1.6em;
     width: 90%;
     margin: auto auto 28px auto;
 }
@@ -294,6 +295,7 @@ body {
     width: 138px;
     height: 48px;
     margin: auto auto 48px auto;
+    font-weight: 500;
 }
 
 .navbar .btn {
@@ -314,33 +316,48 @@ body {
     font-size: 2.13vw;
 }
 
+.client-logos > * {
+    flex-grow: 0;
+}
+
+.client-logos > .separator {
+    display: inline-block;
+    flex-grow: 1;
+}
+
+.client-logos > .desktop-separator {
+    display: none;
+}
+
+
 .client-logos img {
     align-self: center;
     justify-self: center;
+    object-fit: fill;
 }
 
-.client-logos img:nth-child(1) {
+.client-logos img:nth-of-type(1) {
     /* width: 80px; */
     /* width: 21vw; */
-    max-width: 10em;
+    width: 10em;
 }
 
-.client-logos img:nth-child(2) {
+.client-logos img:nth-of-type(2) {
     /* width: 52px; */
     /* width: 14vw; */
-    max-width: 6.5em;
+    width: 6.5em;
 }
 
-.client-logos img:nth-child(3) {
+.client-logos img:nth-of-type(3) {
     /* width: 63px; */
     /* width: 17vw; */
-    max-width: 7.875em;
+    width: 7.875em;
 }
 
-.client-logos img:nth-child(4) {
+.client-logos img:nth-of-type(4) {
     /* width: 58px; */
     /* width: 16vw; */
-    max-width: 7.25em;
+    width: 7.25em;
 }
 
 /* 
@@ -355,6 +372,19 @@ body {
 
 
 @media (min-width: 576px) {
+
+    /* Structuring of the whole page */
+
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Functionality for  */
 
     .menu-header.icon-menu {
         display: none;
@@ -446,7 +476,7 @@ body {
         display: block;
     }
 
-    .menu.main-menu > .separator {
+    .menu.main-menu .desktop-separator {
         display: inline-block;
         flex-grow: 1;
     }
@@ -468,6 +498,7 @@ body {
     .navbar .hover .submenu {
         position: absolute;
         background-color: var(--clr-almost-white);
+        top: 170%;
         border-radius: 15px;
         box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 10%);
         padding: 24px
@@ -485,15 +516,35 @@ body {
     /* TODO: figure out how to make it look better and why the damned image doesn't want to get smaller */
 
     .intro {
-        flex-direction: row;
     }
 
     .intro .hero-img {
         order: 2;
         flex-shrink: 1;
-        max-height: 80vh;
+        max-height: 72vh;
+        max-width: 100%;
         flex-basis: fit-content;
         flex-grow: 0;
+    }
+
+    .intro-wrapper > * {
+        flex-grow: 0;
+    }
+    
+    .intro-wrapper > .desktop-separator {
+        flex-grow: 1;
+    }
+
+    .intro {
+        flex-direction: row;
+        margin-top: 40px;
+        /* TODO: make responsive, replace margins with flex where possible */
+    }
+
+    .intro .hero-img {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
     }
 
     .intro .hero-img img.mobile {
@@ -515,16 +566,36 @@ body {
         box-sizing: border-box;
     }
 
+    .intro .cta > * {
+        flex-grow: 0;
+    }
+
+    .intro .cta > .desktop-separator {
+        display: block;
+        flex-grow: 3;
+    }
+
+    .intro .cta > .desktop-separator:nth-of-type(1) {
+        flex-grow: 5;
+    }
+    .intro .cta > .desktop-separator:nth-of-type(4) {
+        flex-grow: 6;
+    }
+
     .intro .header {
-        font-size: 64px;
+        font-size: 84px;
         text-align: start;
-        margin: 110px 0 60px 0;
+        /* margin: 0 0 60px 0; */
+        margin: 0;
+        letter-spacing: 0.0125em;
     }
 
     .intro .text {
-        font-size: 18px;
+        font-size: 20px;
+        line-height: 1.6em;
         text-align: start;
-        margin: 0 0 50px 0;
+        /* margin: 0 0 50px 0; */
+        margin: 0;
     }
 
     .btn {}
@@ -540,9 +611,14 @@ body {
     .btn.border-black {}
 
     .intro .btn {
-        margin: 0 0 auto 0;
-        width: 163px;
-        height: 56px;
+        margin: 0 0 0 0;
+        width: 166px;
+        height: 59px;
+        font-size: 19px;
+    }
+
+    .intro .btn > p {
+        padding-bottom: 1px;
     }
 
     .navbar .btn {
@@ -559,10 +635,12 @@ body {
     .client-logos {
         margin: auto 0 0 0;
         justify-content: flex-start;
+        font-size: 0.9vw;
     }
 
-    .client-logos img {
-        margin-right: 1em;
+    .client-logos > .desktop-separator {
+        display: inline-block;
+        flex-grow: 1;
     }
 
     .client-logos img:nth-child(1) {}
@@ -572,5 +650,9 @@ body {
     .client-logos img:nth-child(3) {}
 
     .client-logos img:nth-child(4) {}
+
+
+
+
 
 }

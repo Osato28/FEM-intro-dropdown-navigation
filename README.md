@@ -5,7 +5,7 @@
 - [x] Mobile dropdown menu functionality
 - [x] Mobile styling
 - [x] Desktop dropdown menu functionality
-- [ ] Desktop styling
+- [x] Desktop styling
 - [ ] Optional: 4K styling
 - [ ] Utopia fluid scaling
 - [ ] Optional: animate 
