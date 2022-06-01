@@ -9,8 +9,6 @@
 
 */
 
-/* TODO: merge all redundant selectors */
-
 /* Resetting */
 
 html, body {
@@ -437,20 +435,13 @@ body {
         flex-direction: column;
     }
 
-    /* Functionality for  */
-
     .menu-header.icon-menu {
         display: none;
     }
 
-    /* TODO: Change logic from toggle to hover */
-
     .menu-header.dropdown::after {
         margin-left: 8px;
     }
-
-
-    /* TODO: menu HOVER dropdown functionality */
 
     .backdrop.toggled {
         display: none;
@@ -481,11 +472,7 @@ body {
 
     .navbar .logo {
         position: static;
-        /* TODO: translate all leftover "margin-" to single-string "margin" where applicable */
-        margin-top: 32px;
-        margin-bottom: 30px;
-        margin-right: 65px;
-        margin-left: 40px;
+        margin: 32px 30px 65px 40px;
         flex-grow: 0;
     }
 
@@ -570,7 +557,6 @@ body {
         flex-direction: row;
         margin-top: var(-var-intro-mt);
         height: var(--var-intro-h);
-        /* TODO: make responsive, replace margins with flex where possible */
     }
 
     .intro .hero-img {
