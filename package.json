@@ -1,1 +1,11 @@
-{}
+{
+  "dependencies": {
+    "autoprefixer": "^10.4.7",
+    "cssnano": "^5.1.10",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0"
+  },
+  "browserslist": [
+    "defaults"
+ ]
+}
