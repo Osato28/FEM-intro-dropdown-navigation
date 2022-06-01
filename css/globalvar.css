@@ -47,12 +47,26 @@
     /* for transparency's sake, all vars are redefined per media query during development
     TODO: remove unchanged vars from media queries */
     :root {
+        --var-intro-header-fs: 35px;
+        --var-intro-text-fs: 17px;
+        --var-intro-text-lh: 1.6em;
+    
+        --var-intro-btn-h: 50px;
+        --var-intro-btn-w: 150px;
+        --var-intro-btn-fs: 17px;
+        --var-intro-btn-lh: 1em;
+        --var-intro-btn-pt: 3px;
+    
+        --var-intro-logos-fs: 2.13vw;
+    }
+}
+
+@media (min-height: 600px) {
+    :root {
         --var-menu-text-fs: 14px;
     
         --var-menu-icon-h: 20px;
         --var-menu-icon-mb: -4px;
-        --var-menu-logo-w: 84px;
-        --var-menu-logo-h: 28px;
 
         --var-menu-logo-w: 84px;
         --var-menu-logo-h: 28px;
@@ -62,26 +76,14 @@
         --var-menu-btn-h: 50px;
         --var-menu-btn-w: 0;
 
-        --var-menu-first-mt: 82px;
+        --var-menu-first-mt: 60px;
         --var-menu-item-margin: 32px 25px 20px 25px;
         --var-menu-submenu-margin: 20px 25px 16px 25px;
         --var-menu-btn-margin: 12px 25px 20px 25px;
-    
-        --var-intro-header-fs: 35px;
-        --var-intro-text-fs: 17px;
-        --var-intro-text-lh: 1.6em;
-    
-        --var-intro-btn-h: 50px;
-        --var-intro-btn-w: 150px;
-        --var-intro-btn-fs: 17px;
-        --var-intro-btn-lh: 1em;
-        --var-intro-btn-pt: 3px;
-    
-        --var-intro-logos-fs: 2.13vw;
     }
 }
 
-@media (min-width: 480px) {
+@media (min-width: 410px) {
     :root {
         --var-intro-header-fs: 35px;
         --var-intro-text-fs: 17px;
@@ -97,37 +99,90 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-height: 800px) {
+    :root {
+        --var-menu-text-fs: 16px;
+    
+        --var-menu-icon-h: 20px;
+        --var-menu-icon-mb: -4.5px;
 
+        --var-menu-logo-w: 84px;
+        --var-menu-logo-h: 28px;
+    
+        --var-menu-btn-fs: 16px;
+        --var-menu-btn-pt: 2px;
+        --var-menu-btn-h: 60px;
+        --var-menu-btn-w: 0;
+
+        --var-menu-first-mt: 60px;
+        --var-menu-item-margin: 32px 25px 20px 25px;
+        --var-menu-submenu-margin: 20px 25px 16px 25px;
+        --var-menu-btn-margin: 12px 25px 20px 25px;
+    }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 650px) {
+    :root {
+        --var-intro-header-fs: 52px;
+        --var-intro-text-fs: 19px;
+        --var-intro-text-lh: 1.6em;
+    
+        --var-intro-btn-h: 60px;
+        --var-intro-btn-w: 180px;
+        --var-intro-btn-fs: 19px;
+        --var-intro-btn-lh: 1em;
+        --var-intro-btn-pt: 2px;
+    
+        --var-intro-logos-fs: 1.8vw;
+    }
+}
 
+@media (min-width: 1023px) {
+    :root {
+        --var-intro-header-fs: 48px;
+        --var-intro-text-fs: 16px;
+        --var-intro-text-lh: 1.6em;
+        --var-intro-mt: 30px;
+        --var-intro-h: 72vh;
+    
+        --var-intro-btn-h: 50px;
+        --var-intro-btn-w: 150px;
+        --var-intro-btn-fs: 16px;
+        --var-intro-btn-lh: 1em;
+        --var-intro-btn-pt: 2px;
+    
+        --var-intro-logos-fs: 1vw;
+    }
+}
+
+@media (min-height: 1000px) {
+    :root {
+        --var-menu-text-fs: 19px;
+    
+        --var-menu-icon-h: 24px;
+        --var-menu-icon-mb: -5px;
+
+        --var-menu-logo-w: 84px;
+        --var-menu-logo-h: 28px;
+    
+        --var-menu-btn-fs: 19px;
+        --var-menu-btn-pt: 2px;
+        --var-menu-btn-h: 60px;
+        --var-menu-btn-w: 0;
+
+        --var-menu-first-mt: 60px;
+        --var-menu-item-margin: 32px 25px 20px 25px;
+        --var-menu-submenu-margin: 30px 25px 16px 25px;
+        --var-menu-btn-margin: 12px 25px 20px 25px;
+    }
 }
 
 @media (min-width: 1200px) {
     :root {
-        /* --var-menu-text-fs: 0; */
-    
-        /* --var-menu-icon-h: 0;
-        --var-menu-icon-mb: 0; */
-    
-        /* --var-menu-logo-w: 0;
-        --var-menu-logo-h: 0; */
-    
-        /* --var-menu-btn-fs: 0;
-        --var-menu-btn-pt: 0;
-        --var-menu-btn-h: 0;
-        --var-menu-btn-w: 0; */
-    
-        /* --var-menu-first-mt: 0;
-        --var-menu-item-margin: 0;
-        --var-menu-submenu-margin: 0;
-        --var-menu-btn-margin: 0; */
-    
         --var-intro-header-fs: 80px;
         --var-intro-text-fs: 20px;
         --var-intro-text-lh: 1.6em;
+        --var-intro-mt: 40px;
         --var-intro-h: 72vh;
     
         --var-intro-btn-h: 59px;

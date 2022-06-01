@@ -430,7 +430,7 @@ body {
 */
 
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 
     body {
         display: flex;
@@ -568,7 +568,7 @@ body {
 
     .intro {
         flex-direction: row;
-        margin-top: 40px;
+        margin-top: var(-var-intro-mt);
         height: var(--var-intro-h);
         /* TODO: make responsive, replace margins with flex where possible */
     }

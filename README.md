@@ -7,6 +7,8 @@
 - [x] Desktop dropdown menu functionality
 - [x] Desktop styling
 - [ ] Optional: 4K styling
+- [x] Responsive mobile scaling
+- [ ] Responsive desktop scaling
 - [ ] Utopia fluid scaling
 - [ ] Optional: animate 
 - [ ] Optional: optimize performance (display:none -> visibility:hidden, etc.)

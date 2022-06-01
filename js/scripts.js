@@ -19,10 +19,10 @@ function untoggleAllChildren(element) {
 const toggleElements = document.getElementsByClassName('toggle');
 
 // Variable that checks whether the 
-var isMobile = matchMedia('(max-width: 767px)').matches;
+var isMobile = matchMedia('(max-width: 1023px)').matches;
 // The check runs every resize (turning the tablet from portrait to landscape, for instance)
 window.addEventListener('resize', (ev) => {
-    newValue = matchMedia('(max-width: 767px)').matches;
+    newValue = matchMedia('(max-width: 1023px)').matches;
     if (isMobile !== newValue) {
         console.log(isMobile, newValue, "untoggling")
         isMobile = newValue;
