@@ -2,4 +2,5 @@ starter_files/
 node_modules/
 package.json
 package-lock.json
+postcss.config.js
 .DS_Store

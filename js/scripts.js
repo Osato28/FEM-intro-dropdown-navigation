@@ -16,7 +16,30 @@ function untoggleAllChildren(element) {
     }
 }
 
+// Collection of togglable elements
 const toggleElements = document.getElementsByClassName('toggle');
+// Event handler for toggling a togglable parent element if its first child is clicked
+function clickToggle(ev) {
+    if (isMobile) {
+        let targetFound = false;
+        for (el of toggleElements) {
+            // Check if the onClick's target is an immediate child of any elements that have .toggle class
+            if (el.firstElementChild === ev.target) {
+                toggle(el);
+            }
+            if (el.contains(ev.target)) {
+                targetFound = true;
+            }
+        }
+    
+        // If the click was NOT on a togglable element, untoggle all togglables in the document
+        if (!targetFound) {
+            untoggleAllChildren(document);
+        }
+    }
+}
+// Attaching clickToggle to the whole document
+document.addEventListener("click", clickToggle)
 
 // Variable that checks whether the 
 var isMobile = matchMedia('(max-width: 1023px)').matches;
@@ -31,24 +54,3 @@ window.addEventListener('resize', (ev) => {
         untoggleAllChildren(document);
     }
 });
-
-function clickToggle(ev) {
-    if (isMobile) {
-        let targetFound = false;
-        for (el of toggleElements) {
-            // Check if the onClick's target is an immediate child of any elements that have .toggle class
-            if (el.firstElementChild === ev.target) {
-                toggle(el);
-            }
-            if (el.contains(ev.target)) {
-                targetFound = true;
-            }
-        }
-    
-        if (!targetFound) {
-            untoggleAllChildren(document);
-        }
-    }
-}
-
-document.addEventListener("click", clickToggle)

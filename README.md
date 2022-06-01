@@ -7,7 +7,7 @@ https://www.frontendmentor.io/challenges/intro-section-with-dropdown-navigation-
 
 Partially finished (see section "Tasks" below). Just barely complete enough to submit to FEM.
 
-Doing it with pure CSS took way too much time, so I abandoned further development as soon as a minimally viable product (responsive layout, full functionality) was reached.
+Doing it with pure CSS took way too much time, so I abandoned further development as soon as a minimally viable stage (responsive layout, full functionality) was reached.
 
 ## Lessons learned:
 
@@ -60,7 +60,7 @@ Is there a more elegant way to fix it than using a negative margin?
 - [ ] Optional: streamline menu structure and CSS
 - [ ] Convert all px values to rem or vw
 - [x] Search all files for leftover "TODO" comments, fix related issues
-- [ ] Cleanup + comment JS, purge+minify CSS, remove unused fonts
+- [x] Cleanup + comment JS, purge+minify CSS, remove unused fonts
 - [x] Host on Pages
 - [x] Write finalized README.md
 
