@@ -25,7 +25,7 @@ Solution: use display:flex on parent, put flex-grow:0 on all of its immediate ch
 
 # Link to demo on Pages (representing current status of the project)
 
-https://osato28.github.io/intro-dropdown-navigation/
+https://osato28.github.io/FEM-intro-dropdown-navigation/
 
 It is advised to view this site in viewport <420px, as it is not yet adapted to larger screens.
 
