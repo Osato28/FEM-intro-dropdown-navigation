@@ -23,28 +23,28 @@
 <body>
     <nav class="navbar" role="navigation">
         <img src="assets/logo.svg" alt="Go back to main page" class="logo">
-        <div class="backdrop toggle" data-class-toggled="toggled">
-            <div class="menu-header icon-menu"></div>
+        <div class="backdrop toggle" data-class-toggled="toggled" tabindex="0">
+            <div class="menu-header icon-menu" tabindex="0"></div>
             <ul class="menu main-menu">
                 <li class="toggle hover" data-class-toggled="toggled">
-                    <span class="menu-header dropdown">Features</span>
+                    <span class="menu-header dropdown" tabindex="0">Features</span>
                     <ul class="menu submenu">
-                        <li class="item icon list">Todo List</li>
-                        <li class="item icon calendar">Calendar</li>
-                        <li class="item icon bell">Reminders</li>
-                        <li class="item icon clock">Planning</li>
+                        <li class="item icon list" tabindex="0">Todo List</li>
+                        <li class="item icon calendar" tabindex="0">Calendar</li>
+                        <li class="item icon bell" tabindex="0">Reminders</li>
+                        <li class="item icon clock" tabindex="0">Planning</li>
                     </ul>
                 </li>
                 <li class="toggle hover" data-class-toggled="toggled">
-                    <span class="menu-header dropdown">Company</span>
+                    <span class="menu-header dropdown" tabindex="0">Company</span>
                     <ul class="menu submenu">
-                        <li class="item"><a href="#">History</a></li>
-                        <li class="item"><a href="#">Our Team</a></li>
-                        <li class="item"><a href="#">Blog</a></li>
+                        <li class="item"><a href="#" tabindex="0">History</a></li>
+                        <li class="item"><a href="#" tabindex="0">Our Team</a></li>
+                        <li class="item"><a href="#" tabindex="0">Blog</a></li>
                     </ul>
                 </li>
-                <li class="item"><a href="#">Careers</a></li>
-                <li class="item"><a href="#">About</a></li>
+                <li class="item" tabindex="0"><a href="#">Careers</a></li>
+                <li class="item" tabindex="0"><a href="#">About</a></li>
                 <div class="desktop-separator"></div>
                 <li class="item-button"><a href="#">
                         <div class="btn bg-white">
@@ -62,22 +62,22 @@
 
     <section class="intro">
         <div class="hero-img">
-            <img src="./assets/image-hero-desktop.png" alt="" class="desktop">
-            <img src="./assets/image-hero-mobile.png" alt="" class="mobile">
+            <img src="./assets/image-hero-desktop.png" alt="" aria-hidden="true" class="desktop">
+            <img src="./assets/image-hero-mobile.png" alt="" aria-hidden="true" class="mobile">
         </div>
         <div class="cta">
             <div class="separator"></div>
 
-            <h1 class="header">Make remote&nbsp;work</h1>
+            <h1 class="header" tabindex="1">Make remote&nbsp;work</h1>
 
             <div class="separator"></div>
 
-            <p class="text">Get your team in sync, no matter your location. Streamline processes,
+            <p class="text" tabindex="2">Get your team in sync, no matter your location. Streamline processes,
                 create team rituals, and watch productivity soar.</p>
                 
             <div class="separator"></div>
 
-            <a href="#">
+            <a href="#" tabindex="3">
                 <div class="btn bg-black">
                     <p>Learn more</p>
                 </div>
@@ -86,13 +86,13 @@
             <div class="separator"></div>
 
             <div class="client-logos">
-                <img src="assets/client-databiz.svg" alt="">
+                <img src="assets/client-databiz.svg" alt="" aria-hidden="true">
                 <div class="separator"></div>
-                <img src="assets/client-audiophile.svg" alt="">
+                <img src="assets/client-audiophile.svg" alt="" aria-hidden="true">
                 <div class="separator"></div>
-                <img src="assets/client-meet.svg" alt="">
+                <img src="assets/client-meet.svg" alt="" aria-hidden="true">
                 <div class="separator"></div>
-                <img src="assets/client-maker.svg" alt="">
+                <img src="assets/client-maker.svg" alt="" aria-hidden="true">
                 <div class="desktop-separator"></div>
             </div>
 

@@ -25,7 +25,7 @@ Solution: use display:flex on parent, put flex-grow:0 on all of its immediate ch
 
 # Link to demo on Pages (representing current status of the project)
 
-https://osato28.github.io/intro-dropdown-navigation/
+https://osato28.github.io/FEM-intro-dropdown-navigation/
 
 It is advised to view this site in viewport <420px, as it is not yet adapted to larger screens.
 
@@ -54,7 +54,7 @@ Is there a more elegant way to fix it than using a negative margin?
 - [ ] Optional: 4K styling
 - [x] Responsive mobile scaling
 - [x] Responsive desktop scaling
-- [ ] Utopia fluid scaling
+- [ ] Utopia fluid scaling + switch to 3-4 breakpoints
 - [ ] Optional: animate 
 - [ ] Optional: optimize performance (display:none -> visibility:hidden, etc.)
 - [ ] Optional: streamline menu structure and CSS
@@ -63,4 +63,7 @@ Is there a more elegant way to fix it than using a negative margin?
 - [x] Cleanup + comment JS, purge+minify CSS, remove unused fonts
 - [x] Host on Pages
 - [x] Write finalized README.md
+- [ ] Ensure accessibility (lots of JS rewriting required, might need to shift to hidden checkboxes)
+- [ ] Optional: switch breakpoints in styles.css (logic of the layout) to trigger on portrait/landscape
+- [ ] Optional: use hidden checkbox instead of JS+classes to trigger toggling
 
